@@ -1,7 +1,464 @@
+
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>WELCOME TO MY WEBSITE</h1>
-      <P>MY NAME IS BABU</P>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Babu — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0D1B2A;
+      --gold: #C8A96E;
+      --offwhite: #F0EDE6;
+      --slate: #4A5568;
+      --light: #E8E4DC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--offwhite);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      background: rgba(13, 27, 42, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+    }
+
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--offwhite);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2.5rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4rem, 12vw, 9rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      color: var(--offwhite);
+      margin-bottom: 2rem;
+    }
+
+    .hero-name span {
+      display: block;
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--light);
+      max-width: 480px;
+      opacity: 0.8;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* SECTION */
+    section {
+      padding: 5rem 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      opacity: 0.75;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--offwhite);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .divider {
+      width: 3rem;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+      opacity: 0.6;
+    }
+
+    /* ABOUT */
+    .about-text {
+      font-size: 1rem;
+      color: var(--light);
+      opacity: 0.8;
+      max-width: 600px;
+      line-height: 1.9;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      border: 1px solid rgba(200, 169, 110, 0.2);
+      padding: 1.5rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--gold);
+      background: rgba(200, 169, 110, 0.05);
+    }
+
+    .skill-card h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: var(--light);
+      opacity: 0.7;
+      line-height: 1.6;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      border: 1px solid rgba(200, 169, 110, 0.2);
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover { border-color: var(--gold); }
+
+    .project-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--offwhite);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--light);
+      opacity: 0.7;
+      line-height: 1.7;
+    }
+
+    .project-tag {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(200, 169, 110, 0.1);
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      margin-right: 0.4rem;
+    }
+
+    .project-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      opacity: 0.15;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      border: 1px solid rgba(200, 169, 110, 0.2);
+      padding: 3rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .contact-box p {
+      font-size: 1rem;
+      color: var(--light);
+      opacity: 0.7;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .contact-email {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 2rem;
+      transition: opacity 0.2s;
+    }
+
+    .contact-email:hover { opacity: 0.7; }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--offwhite);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      opacity: 0.6;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .social-links a:hover { opacity: 1; color: var(--gold); }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--offwhite);
+      opacity: 0.3;
+      border-top: 1px solid rgba(200, 169, 110, 0.1);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-label  { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+    .hero-name   { animation: fadeUp 0.6s ease both; animation-delay: 0.25s; }
+    .hero-tagline{ animation: fadeUp 0.6s ease both; animation-delay: 0.4s; }
+    .hero-cta    { animation: fadeUp 0.6s ease both; animation-delay: 0.55s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.2rem; }
+      section { padding: 3.5rem 1.25rem; }
+      .hero { padding: 7rem 1.25rem 3rem; }
+      .project-card { flex-direction: column; gap: 0.5rem; }
+      .contact-box { padding: 2rem 1.25rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-label, .hero-name, .hero-tagline, .hero-cta { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-name">Babu</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-label">Portfolio &amp; Personal Site</p>
+    <h1 class="hero-name">Babu<span>.</span></h1>
+    <p class="hero-tagline">
+      I build things, solve problems, and bring ideas to life — one project at a time.
+    </p>
+    <a href="#projects" class="hero-cta">View My Work</a>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">Who I Am</p>
+    <h2 class="section-title">A little about me</h2>
+    <div class="divider"></div>
+    <p class="about-text">
+      Hi, I'm Babu — a passionate creator with a love for learning and building.
+      I enjoy turning ideas into real projects and am always looking for new challenges.
+      When I'm not working, I'm exploring new technologies and sharpening my craft.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">What I Do</p>
+    <h2 class="section-title">My skills</h2>
+    <div class="divider"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Web Development</h3>
+        <p>Building clean, responsive websites using HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Design</h3>
+        <p>Creating intuitive and visually appealing interfaces and experiences.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Problem Solving</h3>
+        <p>Breaking down complex challenges into simple, actionable solutions.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Collaboration</h3>
+        <p>Working effectively with teams to deliver great results together.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">My Work</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="divider"></div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div>
+          <h3>Project One</h3>
+          <p>A brief description of what this project is, what problem it solves, and what you learned from building it.</p>
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+        <span class="project-number">01</span>
+      </div>
+      <div class="project-card">
+        <div>
+          <h3>Project Two</h3>
+          <p>A brief description of what this project is, what problem it solves, and what you learned from building it.</p>
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">GitHub</span>
+        </div>
+        <span class="project-number">02</span>
+      </div>
+      <div class="project-card">
+        <div>
+          <h3>Project Three</h3>
+          <p>A brief description of what this project is, what problem it solves, and what you learned from building it.</p>
+          <span class="project-tag">Design</span>
+          <span class="project-tag">Web</span>
+        </div>
+        <span class="project-number">03</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Let's connect</h2>
+    <div class="divider"></div>
+    <div class="contact-box">
+      <p>Have a project in mind or just want to say hello?<br>Feel free to reach out — I'd love to hear from you.</p>
+      <a href="mailto:babu@email.com" class="contact-email">babu@email.com</a>
+      <div class="social-links">
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com/" target="_blank">Twitter</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Babu. All rights reserved.
+  </footer>
+
+</body>
 </html>
