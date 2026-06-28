@@ -1,0 +1,411 @@
+/* ===========================
+   Google Font
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    color:white;
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at 15% 20%, rgba(59,130,246,.35), transparent 30%),
+    radial-gradient(circle at 85% 25%, rgba(168,85,247,.35), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(236,72,153,.20), transparent 35%),
+    linear-gradient(135deg,#050816,#0b1f45,#102c60);
+
+    background-size:300% 300%;
+
+    animation:backgroundMove 12s ease infinite;
+
+    padding:30px;
+}
+
+
+/* ===========================
+   Navbar
+=========================== */
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    width:90%;
+
+    margin:auto;
+
+    padding:18px 40px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    background:linear-gradient(90deg,#ff6ec7,#8b5cf6,#3b82f6);
+
+    background-clip:text;
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+.nav-links{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:40px;
+}
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+
+    color:#60a5fa;
+}
+
+
+/* ===========================
+Hero Section
+=========================== */
+
+.hero{
+
+    width:90%;
+
+    margin:50px auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:40px;
+}
+
+.hero-left{
+
+    flex:2;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.hero-right{
+
+    flex:1;
+}
+
+.card{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    padding:35px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    height:100%;
+}
+
+.hello{
+
+    color:#60a5fa;
+
+    font-size:22px;
+}
+
+.hero-left h1{
+
+    font-size:90px;
+
+    margin:10px 0;
+
+    background:linear-gradient(90deg,#ff6ec7,#8b5cf6,#3b82f6,#38bdf8);
+
+    background-clip:text;
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-left h2{
+
+    margin-bottom:20px;
+
+    font-weight:500;
+}
+
+.description{
+
+    line-height:1.8;
+
+    color:#d8d8d8;
+}
+
+
+/* ===========================
+Buttons
+=========================== */
+
+.buttons{
+
+    margin-top:30px;
+}
+
+.primary,
+.secondary{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:15px;
+}
+
+.primary{
+
+    background:#3b82f6;
+
+    color:white;
+}
+
+.secondary{
+
+    margin-left:15px;
+
+    background:#8b5cf6;
+
+    color:white;
+}
+
+.primary:hover,
+.secondary:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+
+/* ===========================
+Cards
+=========================== */
+
+.cards{
+
+    width:90%;
+
+    margin:auto;
+
+    display:flex;
+
+    gap:25px;
+}
+
+.about-card,
+.skills-card,
+.contact-card{
+
+    flex:1;
+
+    min-height:230px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+}
+
+.about-card:hover,
+.skills-card:hover,
+.contact-card:hover{
+
+    transform:translateY(-8px);
+}
+
+
+/* ===========================
+Skills
+=========================== */
+
+.skill-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.skill-list span{
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:#2563eb;
+
+    color:white;
+}
+
+
+/* ===========================
+Projects
+=========================== */
+
+.projects{
+
+    width:90%;
+
+    margin:60px auto;
+}
+
+.project-box{
+
+    margin-top:20px;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+
+/* ===========================
+Footer
+=========================== */
+
+footer{
+
+    text-align:center;
+
+    padding:40px;
+
+    color:#d5d5d5;
+}
+
+
+/* ===========================
+Animations
+=========================== */
+
+@keyframes backgroundMove{
+
+    0%{
+
+        background-position:0% 50%;
+    }
+
+    50%{
+
+        background-position:100% 50%;
+    }
+
+    100%{
+
+        background-position:0% 50%;
+    }
+}
+
+
+/* ===========================
+Responsive
+=========================== */
+
+@media(max-width:900px){
+
+.hero{
+
+    flex-direction:column;
+}
+
+.cards{
+
+    flex-direction:column;
+}
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:20px;
+}
+
+.nav-links{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+}
+
+.hero-left h1{
+
+    font-size:60px;
+}
+
+}
