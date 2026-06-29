@@ -475,3 +475,19 @@ Responsive
         height:auto;
         display:block;}
     }
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: #ddd;
+}
+
+a:active {
+    color: white;
+}
