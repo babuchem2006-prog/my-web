@@ -376,91 +376,102 @@ Animations
 /* ===========================
 Responsive
 =========================== */
+@media (max-width:768px){
 
-@media(max-width:900px){
+    body{
+        padding:15px;
+        overflow-x:hidden;
+    }
 
-.hero{
+    .navbar{
+        width:100%;
+        padding:15px 20px;
+        flex-direction:column;
+        gap:15px;
+    }
 
-    flex-direction:column;
-}
+    .logo{
+        font-size:30px;
+        text-align:center;
+    }
 
-.cards{
+    .nav-links{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:15px;
+    }
 
-    flex-direction:column;
-}
+    .hero{
+        width:100%;
+        margin:25px auto;
+        flex-direction:column;
+        gap:20px;
+    }
 
-.navbar{
+    .hero-left,
+    .hero-right,
+    .card{
+        width:100%;
+        padding:25px;
+    }
 
-    flex-direction:column;
+    .hero-left h1{
+        font-size:clamp(2.5rem,8vw,3.2rem);
+        line-height:1.1;
+        text-align:center;
+    }
 
-    gap:20px;
-}
+    .hero-left h2{
+        font-size:1.3rem;
+        text-align:center;
+    }
 
-.nav-links{
+    .hello,
+    .description{
+        text-align:center;
+    }
 
-    flex-wrap:wrap;
+    .buttons{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+        width:100%;
+    }
 
-    justify-content:center;
-}
+    .primary,
+    .secondary{
+        width:100%;
+        margin-left:0;
+        padding:16px;
+        font-size:16px;
+    }
 
-.hero-left h1{
+    .cards{
+        width:100%;
+        flex-direction:column;
+        gap:20px;
+    }
 
-    font-size:60px;
-}
+    .about-card,
+    .skills-card,
+    .contact-card{
+        width:100%;
+        min-height:auto;
+    }
 
-}
-@media (max-width: 768px) {
-body {
-padding: 10px;
-overflow-x: hidden;
-}
+    .projects{
+        width:100%;
+        margin:40px auto;
+    }
 
-h1 {
-    font-size: 2rem;
-    text-align: center;
-}
+    .project-box{
+        padding:20px;
+    }
 
-h2 {
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-p {
-    font-size: 1rem;
-    text-align: center;
-}
-
-nav ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 0;
-}
-
-section {
-    width: 100%;
-    padding: 20px 10px;
-}
-
-.container {
-    width: 100%;
-    flex-direction: column;
-}
-
-* {
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-}
-a{
-    color: white;
-    text-decoration: none;
-}
-a:link,
-a:visited,
-a:hover,
-a:active{
-    color: white;
-}
+    img{
+        max-width:100%;
+        height:auto;
+        display:block;}
+    }
